@@ -1,0 +1,8 @@
+helpwin //获取各种函数
+set_param('sys','SimulationCommand','cmd')
+'sys'is the name of the system and 'cmd' is 'start' 'stop' 'pause' continue' update'
+get_param('sys','')
+
+
+辛普森法则
+对曲线分成Ｎ等份from A to B 
