@@ -15,4 +15,4 @@ A = [0 1 0 0
         0 0 0 1
         0 0 11 0]
 b = [0 1 0 -1]'
-Is_controllable(A, b)
+Is_controllable(A, b) 
