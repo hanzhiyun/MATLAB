@@ -37,7 +37,13 @@ end
 figure;
 p = 1:N/2;
 plot(p, Delta_x, p, Delta_z);
-legend('Delta_x', 'Delta_z');
+hold on;
+Delta_s = Delta_x + Delta_z;
+plot(p, Delta_s);
+legend('Delta_x', 'Delta_z', 'Delta_s');
 
+[~, px] = min(Delta_x)
+[~, pz] = min(Delta_z)
+[~, ps] = min(Delta_s)
 %关闭并行计算
 closematlabpool;  
