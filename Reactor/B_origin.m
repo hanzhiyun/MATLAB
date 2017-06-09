@@ -5,6 +5,7 @@ function B_o = B_origin(x, y, z, N)
 format long
 I = 1.5;        % 线圈原模型通电流大小
 D = 0.124;   % 线圈的直径
+% D = 0.248;
 R = D / 2;    % 线圈的半径
 h = 0.0006;  % 线圈导线宽度
 u = 1e-7;     % u0/4pi

@@ -4,7 +4,7 @@ function delta = delta(N)
 %开启并行计算
 pool = startmatlabpool(4); 
 
-N = 100;
+% N = 100;
 % p = 34;
 
 Delta_x = [];
