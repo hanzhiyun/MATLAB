@@ -7,4 +7,5 @@ PSO
 
 
 *.zip
-
+*.fig
+*.asv
