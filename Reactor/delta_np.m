@@ -7,30 +7,39 @@ function [] = delta_np(N)
 % N = 20;
 % p = 34;
 % n = 20;
+h = 0.0006;  % 线圈导线宽度
 
-Delta_x = [];
+Delta_x1 = [];
+Delta_x2 = [];
 Delta_z = [];
 Delta_s = [];
 
-parfor p = 1:N/2
-    Delta_xt = [];
+for p = 1:N/2
+    Delta_xt1 = [];
+    Delta_xt2 = [];
     Delta_zt = [];
     Delta_st = [];
     
     for n = 1:3*N/5-2
-        delta_x = [];
+        delta_x1 = [];
+        delta_x2 = [];
         delta_z = [];
         
-        for x = 0.064:0.002:0.2
+        for x = 0.064:0.008:0.2
+            % 电抗器底端轴向比较
             B_o = B_origin(x, 0, 0, N);
             B_r3 = B_ring3_n(x, 0, 0, N, p, 2*n);
-            delta_x = [delta_x, abs(norm(B_o) - norm(B_r3))/norm(B_o)];
+            delta_x1 = [delta_x1, abs(norm(B_o) - norm(B_r3))/norm(B_o)];
+            % 电抗器中间轴向比较
+            B_o = B_origin(x, 0, h*N/2, N);
+            B_r3 = B_ring3_n(x, 0, h*N/2, N, p, 2*n);
+            delta_x2 = [delta_x2, abs(norm(B_o) - norm(B_r3))/norm(B_o)];
         end
         %     figure
         %     x = 0.064:0.002:0.2;
         %     plot(x,delta_x);
         
-        for z = 0:0.002:0.2
+        for z = h*N/2:0.02:h*N*2
             B_o = B_origin(0, 0, z, N);
             B_r3 = B_ring3_n(0 , 0, z, N, p, 2*n);
             delta_z = [delta_z, abs(norm(B_o) - norm(B_r3))/norm(B_o)];
@@ -39,17 +48,20 @@ parfor p = 1:N/2
         %     z = 0:0.002:0.2;
         %     plot(z,delta_z);
         
-        Delta_xt = [Delta_xt, sum(delta_x)];
-        Delta_zt = [Delta_zt, sum(delta_z)];
-        Delta_st = [Delta_st, sum(delta_x) + sum(delta_z)];
+        Delta_xt1 = [Delta_xt1, sum(delta_x1)/length(delta_x1)];
+        Delta_xt2 = [Delta_xt2, sum(delta_x2)/length(delta_x2)];
+        Delta_zt = [Delta_zt, sum(delta_z)/length(delta_z)];
+        
+        Delta_st = [Delta_st, (sum(delta_x1) + sum(delta_x2) + sum(delta_z))/3];
     end
-    Delta_x = [Delta_x; Delta_xt];
+    Delta_x1 = [Delta_x1; Delta_xt1];
+    Delta_x2 = [Delta_x2; Delta_xt2];
     Delta_z = [Delta_z; Delta_zt];
     Delta_s = [Delta_s; Delta_st];
 end
 
-filename = 'Delta.mat';
-save(filename, 'Delta_x', 'Delta_z', 'Delta_s');
+filename = ['Delta', num2str(N), '.mat'];
+save(filename, 'Delta_x1', 'Delta_x2', 'Delta_z', 'Delta_s');
 
 % figure;
 % p = 1:N/2;
