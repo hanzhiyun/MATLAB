@@ -1,7 +1,7 @@
 function draw()
 % 画出p,n与N的关系
 
-for i = 1:6
+for i = 1:31
     N = 90 + 10*i;
     ns = 3*N/5;
     filename = ['Delta', num2str(N), '.mat'];
@@ -28,7 +28,7 @@ for i = 1:6
     eta_z(i) = n2 / ns;
         
 end
-N = 90 + 10*(1:6);
+N = 90 + 10*(1:31);
 
 
 figure(1)
