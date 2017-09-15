@@ -1,0 +1,79 @@
+delta(250)
+Starting parallel pool (parpool) using the 'local' profile ... connected to 3 workers.
+
+v_ATC =
+
+     4.907121651467012e-09
+
+
+p_ATC =
+
+    88
+
+
+v_ATS =
+
+     5.435258191460303e-07
+
+
+p_ATS =
+
+   104
+
+
+v_LTC =
+
+     9.505539798058061e-05
+
+
+p_LTC =
+
+    69
+
+
+v_LTB =
+
+     1.187217222191435e-06
+
+
+p_LTB =
+
+   100
+
+
+v =
+
+     9.839811208481711e-05
+
+
+p =
+
+   100
+
+
+min_M_ATC =
+
+   1.610228423598133
+
+
+min_M_ATS =
+
+  11.618387071937265
+
+
+min_M_LTC =
+
+     1.068261370504888e+02
+
+
+min_M_LTB =
+
+   8.725361338866611
+
+
+min_M =
+
+  29.439795110479203
+
+Parallel pool using the 'local' profile is shutting down.
+diary off
