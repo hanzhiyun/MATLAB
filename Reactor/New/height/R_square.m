@@ -9,10 +9,14 @@ end
 At_ave = sum(At)/n;
 At_a = At_ave * ones(1, n);
 
-ssr = Ft - At_a;
-SSR = ssr * ssr';
+sse = At - Ft;
+SSE = sse * sse';
+
+% ssr = Ft - At_a;
+% SSR = ssr * ssr';
 
 sst = At - At_a;
 SST = sst * sst';
 
-R = SSR / SST;
+% R = SSR / SST;
+R = 1 - SSE/SST;

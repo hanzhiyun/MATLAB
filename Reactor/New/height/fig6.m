@@ -8,9 +8,8 @@ p = zeros(31,1);
 q = zeros(31,1);
 for i = 1:31
     n = 90 + 10*i;
-    delta(n);
     filename = ['data\Q', num2str(n), '.mat'];
-    load(filename, 'Q_ATC', 'Q_ATS', 'Q_LTC', 'Q_LTB', 'Q');
+    load(filename, 'Q');
     [q(i), p(i)] = min(Q);
 end
 
