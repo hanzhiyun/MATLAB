@@ -17,16 +17,16 @@ for z = 0:-interval:-D
 end
 
 % ATS方向
-for z = 0-N*h/30:-interval:-D
+for z = 0-N*h/20:-interval:-D-N*h/20
     Bo_ATS = [Bo_ATS, B_origin(0, R, z, N)];
 end
 
 % LTC方向
-for y = R+N*h/5:interval:R+D
+for y = R+N*h/4:interval:R+D+N*h/4
     Bo_LTC = [Bo_LTC, B_origin(0, y, N*h/2, N)];
 end
 
 % LTB方向
-for y = R+N*h/30:interval:R+D
+for y = R+N*h/30:interval:R+D+N*h/30
     Bo_LTB = [Bo_LTB, B_origin(0, y, 0, N)];
 end

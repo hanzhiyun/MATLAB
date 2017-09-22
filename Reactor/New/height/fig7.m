@@ -26,20 +26,22 @@ parfor i = 1:31
     Br = [Br_ATC, Br_ATS, Br_LTC, Br_LTB];
     
     % MAPE
-    M_ATC(i) = MAPE(Bo_ATC, Br_ATC);
-    M_ATS(i) = MAPE(Bo_ATS, Br_ATS);
-    M_LTC(i) = MAPE(Bo_LTC, Br_LTC);
-    M_LTB(i) = MAPE(Bo_LTB, Br_LTB);
+%     M_ATC(i) = MAPE(Bo_ATC, Br_ATC);
+%     M_ATS(i) = MAPE(Bo_ATS, Br_ATS);
+%     M_LTC(i) = MAPE(Bo_LTC, Br_LTC);
+%     M_LTB(i) = MAPE(Bo_LTB, Br_LTB);
     M(i) = MAPE(Bo, Br);
+
+%     M(i) = NRMSD(Bo, Br);
     % 确定系数
-    R(i) = R_square(Bo, Br);
+%     R(i) = R_square(Bo, Br);
 end
 % M = (M_ATC + M_ATS + M_LTC + M_LTB)./4;
-
-data = [H_D, M, R];
-data2 = [H_D, M_ATC, M_ATS, M_LTC, M_LTB];
-xlswrite(writefile, data, 1);
-xlswrite(writefile, data2, 2);
+M
+% data = [H_D, M, R];
+% data2 = [H_D, M_ATC, M_ATS, M_LTC, M_LTB];
+% xlswrite(writefile, data, 1);
+% xlswrite(writefile, data2, 2);
     
 
 %{
