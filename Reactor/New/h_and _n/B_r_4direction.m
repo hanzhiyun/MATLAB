@@ -17,16 +17,16 @@ for z = 0:-interval:-D
 end
 
 % ATS方向
-for z = 0-N*h/20:-interval:-D-N*h/20
+for z = 0-N*h/30:-interval:-D
     Br_ATS = [Br_ATS, B_ring3_n(0, R, z, N, p, n)];
 end
 
 % LTC方向
-for y = R+N*h/4:interval:R+D+N*h/4
+for y = R+N*h/5:interval:R+D
     Br_LTC = [Br_LTC, B_ring3_n(0, y, N*h/2, N, p, n)];
 end
 
 % LTB方向
-for y = R+N*h/30:interval:R+D+N*h/30
+for y = R+N*h/30:interval:R+D
     Br_LTB = [Br_LTB, B_ring3_n(0, y, 0, N, p, n)];
 end
