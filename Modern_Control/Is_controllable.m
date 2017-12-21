@@ -1,13 +1,15 @@
 function value = Is_controllable(A, B)
 % test
-A = [0 0 -18; 1 0 -27; 0 1 -10];
-B = [1; 1; 0];
+% A = [0 0 -18; 1 0 -27; 0 1 -10];
+% B = [1; 1; 0];
 n = min(size(A));
-N = [];
+M = [];
 for i = 0:n - 1
-     N = [N, A^i * B];
+     M = [M, A^i * B];
 end
-value = det(N);
+disp('M = ');
+disp(M);
+value = det(M);
 if 0 == value
     disp('This state space is not controllable.')
 else 
